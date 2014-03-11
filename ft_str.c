@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 17:03:11 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 17:08:18 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 13:40:47 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 char		*ft_strdup(const char *s1)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (!str)
 		return (NULL);
@@ -28,9 +26,7 @@ char		*ft_strdup(const char *s1)
 char		*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
 	str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
@@ -45,7 +41,7 @@ char		*ft_strcat(char *s1, const char *s2)
 	return (s1);
 }
 
-char			*ft_strcpy(char *str, const char *src)
+char		*ft_strcpy(char *str, const char *src)
 {
 	int			loop;
 
@@ -54,4 +50,13 @@ char			*ft_strcpy(char *str, const char *src)
 		str[loop] = src[loop];
 	str[loop] = '\0';
 	return (str);
+}
+
+void		board_error(t_gboard *grid)
+{
+	if (grid->error != NULL)
+	{
+		ft_putendl(grid->error);
+		grid->error = NULL;
+	}
 }

@@ -6,13 +6,13 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 11:42:52 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 12:50:27 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/08 21:37:13 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 
-int		ft_isdigit(int number)
+int				ft_isdigit(int number)
 {
 	if (number >= 48 && number <= 57)
 		return (1);
@@ -28,15 +28,20 @@ int				check_args(char *line, char *col)
 	loop = -1;
 	check_int = 0;
 	while (++loop < (int)ft_strlen(line) && check_int != -1)
+	{
 		if (ft_isdigit(line[loop]) == 0)
 			check_int = -1;
+	}
 	loop = -1;
 	while (++loop < (int)ft_strlen(col) && check_int != -1)
-		if (ft_isdigit(line[loop]) == 0)
+	{
+		if (ft_isdigit(col[loop]) == 0)
 			check_int = -1;
+	}
 	return (check_int);
 }
-int			check_size(char *line, char *col, t_gboard *board)
+
+int				check_size(char *line, char *col, t_gboard *board)
 {
 	int		check_int;
 

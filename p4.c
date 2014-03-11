@@ -6,24 +6,70 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/08 17:59:54 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/11 20:14:51 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
 
-void			show_usage()
+void			show_usage(void)
 {
 	ft_puterr(P4_USAGE);
 	ft_puterr(P4_RULE);
 	ft_puterr("\n");
 }
 
+int				check_poss(t_gboard *p4)
+{
+	int			y;
+	int			check;
+
+	check = 0;
+	y = 0;
+	while (y != p4->nb_columns)
+	{
+		if (p4->board[0][y] == 0)
+			check++;
+		y++;
+	}
+	if (check == 0)
+		ft_putendl("It's a draw.");
+	return (check);
+}
+
+void			ft_p4(t_gboard *p4, char *cl)
+{
+	int			win;
+	int			nb_player;
+
+	srand(time(NULL));
+	p4->ia_id = rand() % 2 + 1;
+	nb_player = 1;
+	win = 0;
+	bzero_board(p4);
+	print_board(p4);
+	while (win == 0 && check_poss(p4))
+	{
+		if (p4->ia_id != nb_player)
+			win = player(p4, cl, nb_player);
+		else
+			win = ft_ia(p4, cl, nb_player);
+		if (nb_player == 1)
+			nb_player++;
+		else
+			nb_player--;
+	}
+}
+
 int				main(int argc, char **argv)
 {
-	t_gboard			*p4;
-	int					move;
-	
+	t_gboard	*p4;
+	char		*cl;
+
+	tgetent(NULL, NULL);
+	if ((cl = tgetstr("cl", NULL)) == NULL)
+		return (-1);
+	ft_putstr(cl);
 	if ((p4 = init_game()) == NULL)
 		return (-1);
 	if (argc != 3)
@@ -35,36 +81,7 @@ int				main(int argc, char **argv)
 	{
 		if (check_size(argv[1], argv[2], p4) == -1)
 			return (-1);
-		bzero_board(p4);
-		print_board(p4);
-		/*ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 3);
-		ft_play(p4, 1, 2);
-		print_board(p4);
-		ft_putchar('\n');
-		ft_play(p4, 2, 1);
-		ft_play(p4, 2, 2);
-		ft_play(p4, 10, 2);
-		print_board(p4);
-		ft_putchar('\n');*/
-		if ((move = ft_player()) == -1)
-			ft_putendl_fd("Columns are only numbers between ", 2);
-		else
-			ft_play(p4, move, 1);
-		print_board(p4);
-		ft_putchar('\n');
+		ft_p4(p4, cl);
 	}
 	return (0);
 }
