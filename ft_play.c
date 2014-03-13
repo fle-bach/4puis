@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 14:36:04 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 13:58:24 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 15:58:15 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int			player(t_gboard *p4, char *cl, int player)
 	move = -1;
 	while (move == -1)
 	{
-		ft_putendl("Your turn you mud !");
+		if (p4->ia_id == 1)
+			ft_putendl("You're \033[0;33mYelloz\033[0;37m mudpie.");
+		else
+			ft_putendl("You're \033[0;31mRedw\033[0;37m cupcake.");
 		if ((move = ft_player()) == -1)
 		{
 			ft_putstr(cl);

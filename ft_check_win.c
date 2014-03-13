@@ -6,12 +6,11 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/08 19:25:06 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/09 13:42:50 by gleger           ###   ########.fr       */
+/*   Updated: 2014/03/09 16:08:37 by gleger           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <p4.h>
-#include <stdio.h>
 
 int			check_lines(t_gboard *p4, int player)
 {

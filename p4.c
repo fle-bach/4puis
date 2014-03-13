@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/23 15:03:18 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/11 20:14:51 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/13 20:43:01 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,16 @@ void			ft_p4(t_gboard *p4, char *cl)
 
 	srand(time(NULL));
 	p4->ia_id = rand() % 2 + 1;
+	p4->ia_id = 2;
 	nb_player = 1;
 	win = 0;
 	bzero_board(p4);
+//	seg fault 6 7
 	print_board(p4);
 	while (win == 0 && check_poss(p4))
 	{
 		if (p4->ia_id != nb_player)
-			win = player(p4, cl, nb_player);
+			win = ft_ia(p4, cl, nb_player);
 		else
 			win = ft_ia(p4, cl, nb_player);
 		if (nb_player == 1)

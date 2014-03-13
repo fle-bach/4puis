@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/11 16:55:45 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/11 20:10:53 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/12 22:33:51 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int		ft_right_bis(t_gboard *p4, int play, int check)
 			check = ft_check_three(p4->board[x_bis - 2][p.y - 2], play, check);
 			check = ft_check_three(p4->board[x_bis - 3][p.y - 3], play, check);
 			if (check == 2)
-				return (check_good_diag(p4, x_bis, p.y));
+			{
+				if ((check = check_good_diag(p4, x_bis, p.y)))
+					return (check);
+			}
 		}
 	}
 	return (0);
@@ -82,7 +85,10 @@ int		ft_right(t_gboard *p4, int play, int check)
 			check = ft_check_three(p4->board[p.x - 2][y_bis - 2], play, check);
 			check = ft_check_three(p4->board[p.x - 3][y_bis - 3], play, check);
 			if (check == 2)
-				return (check_good_diag(p4, p.x, y_bis));
+			{
+				if ((check = check_good_diag(p4, p.x, y_bis)))
+					return (check);
+			}
 		}
 	}
 	return (ft_right_bis(p4, play, check));
@@ -106,7 +112,10 @@ int		ft_left_bis(t_gboard *p4, int play, int check)
 			check = ft_check_three(p4->board[x_bis - 2][p.y + 2], play, check);
 			check = ft_check_three(p4->board[x_bis - 3][p.y + 3], play, check);
 			if (check == 2)
-				return (check_good_diag1(p4, x_bis, p.y));
+			{
+				if ((check = check_good_diag1(p4, x_bis, p.y)))
+					return (check);
+			}
 		}
 	}
 	return (0);
@@ -130,7 +139,10 @@ int		ft_left(t_gboard *p4, int play, int check)
 			check = ft_check_three(p4->board[p.x - 2][y_bis + 2], play, check);
 			check = ft_check_three(p4->board[p.x - 3][y_bis + 3], play, check);
 			if (check == 2)
-				return (check_good_diag1(p4, p.x, y_bis));
+			{
+				if ((check = check_good_diag1(p4, p.x, y_bis)))
+					return (check);
+			}
 		}
 	}
 	return (ft_left_bis(p4, play, check));

@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 04:48:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/10 22:25:20 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/12 16:01:18 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int		ft_double(t_gboard *p4, t_axe p, int check)
 		else if ((p.x + 1) == p4->nb_lines && (p.y + 4) != p4->nb_columns
 			&& (p.y - 1) != -1 && p4->board[p.x][p.y + 4] == 0)
 			return (p.y + 4);
-		else if ((p.x + 1) != p4->nb_lines && (p.y - 1) == -1
-			&& (p.y + 4) != p4->nb_columns && (p.y - 1) != -1
+		else if ((p.x + 1) != p4->nb_lines
+			&& (p.y + 4) != p4->nb_columns && (p.y - 1) == -1
 			&& p4->board[p.x + 1][p.y + 3] && p4->board[p.x + 1][p.y]
 			&& p4->board[p.x + 1][p.y + 4] && p4->board[p.x][p.y + 4] == 0)
 			return (p.y + 4);
