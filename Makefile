@@ -6,7 +6,7 @@
 #    By: gleger <gleger@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/31 19:03:08 by gleger            #+#    #+#              #
-#    Updated: 2014/03/12 20:44:15 by fle-bach         ###   ########.fr        #
+#    Updated: 2014/03/13 22:12:24 by fle-bach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,20 +14,20 @@ CC		= cc
 NAME	= puissance4
 FLAGS	= -Wall -Wextra -Werror -O3 -I ./includes
 LIB		= -L /usr/lib -ltermcap
-SRC		=	ft_putstuff.c \
+SRC		=	ft_check_win_diag.c \
+			check_diag_double.c \
+			ft_check_win.c \
+			ft_putstuff.c \
+			check_three.c \
+			check_diag.c \
 			ft_putmore.c \
+			ft_verif.c \
 			ft_check.c \
 			ft_board.c \
 			ft_play.c \
 			ft_str.c \
-			ft_check_win.c \
-			ft_check_win_diag.c \
 			ft_ia.c \
-			check_three.c \
 			check.c \
-			check_diag.c \
-			check_diag_double.c \
-			ft_verif.c \
 			p4.c
 OBJ = $(SRC:.c=.o)
 
