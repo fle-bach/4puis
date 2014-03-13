@@ -6,7 +6,7 @@
 /*   By: gleger <gleger@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/09 00:15:56 by gleger            #+#    #+#             */
-/*   Updated: 2014/03/13 23:16:28 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/13 23:19:04 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,19 +76,21 @@ int			ft_ia(t_gboard *p4, char *cl, int player)
 {
 	int		win;
 	int		move;
+	int		check;
 
 	move = -1;
 	while (move == -1)
 	{
 		ft_putstr(cl);
 		move = ft_check_ia(p4, player);
+		check = move;
+		move = ft_play(p4, (move - 1), player);
 		if (move != -1)
 		{
 			ft_putstr("move : ");
-			ft_putnbr(move);
+			ft_putnbr(check);
 			ft_putchar('\n');
 		}
-		move = ft_play(p4, (move - 1), player);
 	}
 	print_board(p4);
 	win = check_win(p4, player);
