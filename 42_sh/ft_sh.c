@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/16 09:48:00 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/10 15:16:14 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/14 16:59:21 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static t_sh		ft_commande(t_sh sh)
 		if (ft_verif_dup(sh.line) == 0)
 			sh = ft_exe_sh(sh);
 		else
-			sh = ft_dup(sh);
+			ft_dup(sh.line, sh.envp);
 		sh = ft_free_sh(sh);
 		free(sh.line);
 		count++;

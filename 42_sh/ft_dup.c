@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/05 15:40:12 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/06 12:49:42 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/14 16:58:39 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		ft_verif(char *line)
 	}
 	if (verif == 1 && line[0] == '|')
 		return (write(1, "parse error near `|'\n", 21));
-	if (verif == 1 && line[count - 1] == '|')
+	else if (verif == 1 && line[count - 1] == '|')
 		verif = 3;
 	return (verif);
 }
@@ -82,10 +82,14 @@ static int		ft_verif_pipe(char *line)
 	return (0);
 }
 
-t_sh			ft_dup(t_sh sh)
+void			ft_dup(char *line, char **envp)
 {
+	t_sh	sh;
 	int		verif;
 
+	sh = ft_init_sh(sh);
+	sh.line = ft_strdup(line);
+	sh.envp = envp;
 	verif = ft_verif(sh.line);
 	if (verif == 3)
 	{
@@ -96,5 +100,6 @@ t_sh			ft_dup(t_sh sh)
 		sh = ft_pipe(sh);
 	else if (verif == 2)
 		ft_putendl("non gerer");
-	return (sh);
+	free(sh.line);
+	ft_free_sh(sh);
 }
