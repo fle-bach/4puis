@@ -34,54 +34,6 @@ static int		ft_verif(char *line)
 	return (verif);
 }
 
-static char		*ft_pipe_end(char *line)
-{
-	char	*pipe;
-	char	*save;
-
-	pipe = ft_strdup("");
-	while (ft_strcmp(pipe, "") == 0)
-	{
-		free(pipe);
-		ft_putstr("pipe> ");
-		get_next_line(0, &pipe);
-		pipe = ft_strtrim(pipe);
-	}
-	save = ft_strdup(line);
-	free(line);
-	line = ft_strjoin(save, pipe);
-	free(pipe);
-	free(save);
-	return (line);
-}
-
-static int		ft_verif_pipe(char *line)
-{
-	int		count;
-	int		save;
-	char	*arg;
-
-	count = 0;
-	save = count;
-	while (line[count])
-	{
-		if (line[count] == '|')
-		{
-			arg = ft_strsub(line, save, (count - save));
-			arg = ft_strtrim(arg);
-			if (ft_strcmp(arg, "") == 0)
-			{
-				free(arg);
-				return (write(1, "parse error near `|'\n", 21));
-			}
-			free(arg);
-			save = count + 1;
-		}
-		count++;
-	}
-	return (0);
-}
-
 void			ft_dup(char *line, char **envp)
 {
 	t_sh	sh;

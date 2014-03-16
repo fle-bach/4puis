@@ -41,6 +41,7 @@ char	**ft_setenv(char **envp, char *line);
 char	**ft_change_oldpwd(char **envp);
 char	**ft_change_pwd(char **envp);
 char	**ft_copy_envp(char **envp);
+char	*ft_pipe_end(char *line);
 char	**ft_cd(t_sh sh);
 
 void	ft_dup(char *line, char **envp);
@@ -54,6 +55,7 @@ int		ft_error_tild(t_sh sh, char *init_cd);
 int		ft_error_cd(t_sh sh, char *init_cd);
 int		ft_comp(char *envp, char *av);
 int		ft_error_less(char *oldpwd);
+int		ft_verif_pipe(char *line);
 int		ft_error_arg(char *arg);
 int		ft_exit(char *line);
 
