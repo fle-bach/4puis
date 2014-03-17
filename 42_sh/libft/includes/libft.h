@@ -60,6 +60,7 @@ char	*ft_strrchr(const char *str, int c);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strcpy(char *dest, const char *src);
+char	**ft_realloc(char **s, char *str, int i);
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strjoin(char const *s1, char const *s2);

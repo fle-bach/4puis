@@ -37,7 +37,7 @@ static int		ft_verif(char *line)
 void			ft_dup(char *line, char **envp)
 {
 	t_sh	sh;
-	int		verif;
+	int	verif;
 
 	sh = ft_init_sh(sh);
 	sh.line = ft_strdup(line);

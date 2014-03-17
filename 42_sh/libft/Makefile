@@ -14,7 +14,8 @@ NAME = libft.a
 
 CC = gcc -Wall -Wextra -Werror
 
-SRC = ft_atoi.c ft_bzero.c \
+SRC = ft_atoi.c \
+	ft_bzero.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -92,6 +93,7 @@ SRC = ft_atoi.c ft_bzero.c \
 	ft_powl.c \
 	ft_strsplit_trim.c \
 	ft_strlen2.c \
+	ft_realloc.c \
 	ft_free_double_tab.c
 
 OBJ = $(SRC:.c=.o)
