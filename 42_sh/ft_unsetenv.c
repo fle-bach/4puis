@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 14:59:32 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/03 15:59:00 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/17 12:40:41 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			**ft_unsetenv(char **envp, char *line)
 	if (av[1] == '\0')
 	{
 		ft_free_double_tab(&av);
-		write(1, "too few arguments\n", 18);
+		write(2, "too few arguments\n", 18);
 		return (envp);
 	}
 	i = 1;

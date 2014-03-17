@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/18 13:40:33 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/03 15:47:12 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/17 12:35:33 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_error(char *arg)
 {
-	write(1, arg, ft_strlen(arg));
-	write(1, ": commande not found\n", 21);
+	write(2, arg, ft_strlen(arg));
+	write(2, ": commande not found\n", 21);
 }
 
 int		ft_exit(char *line)
@@ -39,7 +39,7 @@ int		ft_error_arg(char *arg)
 	{
 		if (arg[count] == '=')
 		{
-			write(1, "no '=' in first argument please\n", 32);
+			write(2, "no '=' in first argument please\n", 32);
 			return (-1);
 		}
 		count++;

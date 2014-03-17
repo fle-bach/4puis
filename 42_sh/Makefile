@@ -6,7 +6,7 @@
 #    By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/26 09:33:53 by fle-bach          #+#    #+#              #
-#    Updated: 2014/03/14 17:00:09 by fle-bach         ###   ########.fr        #
+#    Updated: 2014/03/17 11:34:34 by fle-bach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ft_path_prompt_exe.c \
 	ft_envp.c \
 	ft_pipe.c \
 	ft_dup.c \
+	ft_cut.c \
 	ft_sh.c \
 	ft_cd.c \
 	main.c

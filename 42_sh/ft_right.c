@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/04 15:39:40 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/01/12 22:09:20 by fle-bach         ###   ########.fr       */
+/*   Created: 2014/03/17 11:29:18 by fle-bach          #+#    #+#             */
+/*   Updated: 2014/03/17 11:29:21 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-t_sh		ft_right(t_sh sh)
+void	ft_right(char *arg, char **av, char *name, char **envp)
 {
-	return (sh);
+	char	*path;
+
+	path = ft_get_path(envp, exe);
+	return ;
 }

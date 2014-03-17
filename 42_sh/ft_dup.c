@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/05 15:40:12 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/14 16:58:39 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/17 12:40:16 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@ static int		ft_verif(char *line)
 		count++;
 	}
 	if (verif == 1 && line[0] == '|')
-		return (write(1, "parse error near `|'\n", 21));
+		return (write(2, "parse error near `|'\n", 21));
 	else if (verif == 1 && line[count - 1] == '|')
 		verif = 3;
 	return (verif);
 }
 
+void			ft_other(t_sh sh)
+{
+	char	**cut;
+
+	cut = ft_cut(sh);
+	ft_env(cut);
+	ft_free_double_tab(&cut);
+}
+
 void			ft_dup(char *line, char **envp)
 {
 	t_sh	sh;
-	int	verif;
+	int		verif;
 
 	sh = ft_init_sh(sh);
 	sh.line = ft_strdup(line);
@@ -51,7 +60,7 @@ void			ft_dup(char *line, char **envp)
 	if (verif == 1 && ft_verif_pipe(sh.line) == 0)
 		sh = ft_pipe(sh);
 	else if (verif == 2)
-		ft_putendl("non gerer");
+		ft_other(sh);
 	free(sh.line);
 	ft_free_sh(sh);
 }

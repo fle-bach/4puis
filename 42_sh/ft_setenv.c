@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/24 15:34:46 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/05 18:01:28 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/17 12:39:27 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char			**ft_setenv(char **envp, char *line)
 	else if (av[3] == '\0')
 		envp = ft_envp2(envp, av);
 	else
-		write(1, "too many argument\n", 18);
+		write(2, "too many argument\n", 18);
 	ft_free_double_tab(&av);
 	return (envp);
 }

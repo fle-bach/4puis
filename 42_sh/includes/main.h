@@ -6,7 +6,7 @@
 /*   By: fle-bach <fle-bach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/02/16 09:30:24 by fle-bach          #+#    #+#             */
-/*   Updated: 2014/03/14 16:59:08 by fle-bach         ###   ########.fr       */
+/*   Updated: 2014/03/17 11:34:15 by fle-bach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	**ft_change_oldpwd(char **envp);
 char	**ft_change_pwd(char **envp);
 char	**ft_copy_envp(char **envp);
 char	*ft_pipe_end(char *line);
+char	**ft_cut(t_sh sh);
 char	**ft_cd(t_sh sh);
 
 void	ft_dup(char *line, char **envp);
